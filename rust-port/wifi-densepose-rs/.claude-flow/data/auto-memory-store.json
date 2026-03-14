@@ -1,0 +1,366 @@
+[
+  {
+    "id": "mem-MEMORY-feedback",
+    "key": "feedback",
+    "content": "- [绝对禁止修改宿主机网络设置](feedback_never_modify_host_network.md) — 严禁修改当前电脑的 WiFi/网络配置，会导致断网\n- [禁止盲目 kill 端口占用进程](feedback_never_blindly_kill_ports.md) — 必须先确认端口占用者，这台电脑有多个 AI/服务同时工作",
+    "summary": "Feedback",
+    "namespace": "core",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/kongkang/.claude/projects/-Users-kongkang-Developer-RuView/memory/MEMORY.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1773414744893
+  },
+  {
+    "id": "mem-MEMORY-project",
+    "key": "project",
+    "content": "- [CSI 采集系统已工作](project_csi_working.md) — Cudy TR3000 CSI 数据管道完整运行：MtkCSIdump 固件 + 自定义驱动 + UDP 流式传输",
+    "summary": "Project",
+    "namespace": "core",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/kongkang/.claude/projects/-Users-kongkang-Developer-RuView/memory/MEMORY.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1773414744893
+  },
+  {
+    "id": "mem-feedback_never_blindly_kill_ports----",
+    "key": "-",
+    "content": "name: 禁止盲目 kill 端口占用进程\ndescription: 必须先确认端口占用者身份，这台电脑有多个 AI/服务同时工作\ntype: feedback\n---\n\n**绝对禁止未经确认就 kill 端口占用进程。**\n\n**Why:** 2026-03-13 事件：需要使用 5500 和 8080 端口时，未查看占用者直接 `lsof -ti :端口 | xargs kill -9`，可能杀死了其他正在工作的 AI 或服务。这台电脑上不只有一个 AI 在运行。\n\n**How to apply:**\n1. 遇到端口冲突时，先 `lsof -i :端口` 查看是谁在用（进程名、PID、用户）\n2. 如果是自己启动的进程，可以 kill；如果不是，换一个端口\n3. 永远不要用 `lsof -ti :端口 | xargs kill -9` 这种盲目杀进程的方式\n4. 宁可换端口，也不要杀别人的进程\n5. 如果不确定，问用户",
+    "summary": "---",
+    "namespace": "feedback_never_blindly_kill_ports",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/kongkang/.claude/projects/-Users-kongkang-Developer-RuView/memory/feedback_never_blindly_kill_ports.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1773414744893
+  },
+  {
+    "id": "mem-feedback_never_modify_host_network----",
+    "key": "-",
+    "content": "name: 绝对禁止修改宿主机网络设置\ndescription: 严禁修改当前电脑的 WiFi/网络配置，会导致断网自杀式操作\ntype: feedback\n---\n\n**绝对禁止修改宿主机（当前电脑）的任何网络设置，包括 WiFi 连接、网络接口配置等。**\n\n**Why:** 2026-03-13 事件：在操作 Cudy TR3000 路由器时，错误地将 Mac 的 WiFi 连接到路由器的 RuView-CSI 网络，导致 Mac 断网（失去互联网连接）。Mac 通过网线连接路由器进行管理，WiFi 是连接互联网的通道，改了 WiFi 就等于自杀。\n\n**How to apply:**\n1. 永远不要运行 `networksetup -setairportnetwork`、`networksetup -setairportpower` 等修改网络的命令\n2. 永远不要修改 `/etc/resolv.conf`、网络接口配置等\n3. 路由器/IoT 设备通过网线（ethernet）管理，不需要也不应该用 Mac WiFi 去连\n4. 如果需要 WiFi 客户端来测试 CSI，应该让",
+    "summary": "---",
+    "namespace": "feedback_never_modify_host_network",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/kongkang/.claude/projects/-Users-kongkang-Developer-RuView/memory/feedback_never_modify_host_network.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1773414744894
+  },
+  {
+    "id": "mem-project_csi_working----",
+    "key": "-",
+    "content": "name: Cudy TR3000 CSI 采集系统已工作\ndescription: CSI 数据管道完整运行：MtkCSIdump 固件 + 自定义驱动 + UDP 流式传输到本机\ntype: project\n---\n\nCudy TR3000 v2 路由器 (MT7981B + MT7976CN) 的 WiFi CSI 采集已成功运行。\n\n**Why:** 用于养老院老人跌倒检测的核心数据源，CSI 比摄像头无隐私问题。\n\n**How to apply:**\n- CSI 采集速率约 2.4 Hz，256 子载波 × 2 天线\n- 路由器 SSH: `root@192.168.1.1`，密码 `7.Hc7C7thVhi7FP`\n- 路由器 WiFi SSID: `RuView-CSI` / `RuView-CSI-5G`，密码 `RuView2024CSI`\n- 本机 IP: `192.168.1.239`（en8 以太网）\n- 手机 ADB: `JELYCNS100001084`，MAC `c2:0a:2f:89:a1:43`\n\n关键发现：\n1. Cudy 股票固件 `mt7981_",
+    "summary": "---",
+    "namespace": "project_csi_working",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/kongkang/.claude/projects/-Users-kongkang-Developer-RuView/memory/project_csi_working.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1773414744894
+  },
+  {
+    "id": "mem-MEMORY-feedback",
+    "key": "feedback",
+    "content": "- [feedback_code_quality.md](feedback_code_quality.md) — 代码一次写对，不要被审查工具挑出问题",
+    "summary": "Feedback",
+    "namespace": "core",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/kongkang/.claude/projects/-Users-kongkang-Developer-reai-mobile-app/memory/MEMORY.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1773414744895
+  },
+  {
+    "id": "mem-feedback_code_quality----",
+    "key": "-",
+    "content": "name: 代码质量标准\ndescription: 用户希望代码一次写对，不要被 Codex 等审查工具挑出问题\ntype: feedback\n---\n\n每次写完的代码都应该是完善的，不要被 Codex 检查出来问题。被审查工具挑出问题会让用户觉得不专业。\n\n**Why:** 用户认为被 Codex 检查出问题\"是有点丢人的\"，希望代码本身质量过硬。\n\n**How to apply:** 写代码时主动考虑：副作用（如 loadConversations 清除 unreadOverride）、字段丢失（如 Realtime merge 不保留旧字段）、环境差异（如 pubspec.lock 镜像 URL）。在提交前自查这些常见陷阱，而不是依赖审查工具来发现。",
+    "summary": "---",
+    "namespace": "feedback_code_quality",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/kongkang/.claude/projects/-Users-kongkang-Developer-reai-mobile-app/memory/feedback_code_quality.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1773414744895
+  },
+  {
+    "id": "mem-modal-route-ignore-pointer-bug---",
+    "key": "-",
+    "content": "从 ChatDetailPage 返回 MainPage 后，底部 Tab 栏完全无法触摸，持续 5+ 秒。",
+    "summary": "问题",
+    "namespace": "modal-route-ignore-pointer-bug",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/kongkang/.claude/projects/-Users-kongkang-Developer-reai-mobile-app/memory/modal-route-ignore-pointer-bug.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1773414744895
+  },
+  {
+    "id": "mem-modal-route-ignore-pointer-bug---",
+    "key": "-",
+    "content": "Flutter 框架已知 Bug：`ModalRoute` 在 iOS 路由转场时用 `IgnorePointer(ignoring: true)` 包裹前一个页面，\n转场完成后翻转失败，导致 MainPage 触摸被永久阻塞。\n\n### 加重因素\n1. `FloatingTabBar` 中的 `BackdropFilter` 导致转场期间 GPU 负载重，帧率暴跌\n2. `ChatDetailPage.dispose()` 中调用 `leaveConversation()` → `notifyListeners()` 在转场动画期间触发重建\n3. Supabase Realtime `unsubscribe()` 在主线程执行\n\n### 为什么第二次滑动修复\niOS 返回手势强制 `userGestureInProgress` 标志翻转 → ModalRoute 重建 → IgnorePointer 回到 false。",
+    "summary": "根因",
+    "namespace": "modal-route-ignore-pointer-bug",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/kongkang/.claude/projects/-Users-kongkang-Developer-reai-mobile-app/memory/modal-route-ignore-pointer-bug.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1773414744895
+  },
+  {
+    "id": "mem-modal-route-ignore-pointer-bug----flutter-issues",
+    "key": "-flutter-issues",
+    "content": "- #41024, #73026, #77592, #44441, #169833",
+    "summary": "相关 Flutter Issues",
+    "namespace": "modal-route-ignore-pointer-bug",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/kongkang/.claude/projects/-Users-kongkang-Developer-reai-mobile-app/memory/modal-route-ignore-pointer-bug.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1773414744895
+  },
+  {
+    "id": "mem-modal-route-ignore-pointer-bug-----",
+    "key": "-",
+    "content": "1. 将 dispose() 中的 notifyListeners() 延迟到转场动画后执行（addPostFrameCallback / Future.microtask）\n2. 考虑在转场期间禁用 BackdropFilter 或替换为静态背景\n3. 使用 NavigatorObserver 检测 pop 完成后 force rebuild",
+    "summary": "修复方案",
+    "namespace": "modal-route-ignore-pointer-bug",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/kongkang/.claude/projects/-Users-kongkang-Developer-reai-mobile-app/memory/modal-route-ignore-pointer-bug.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1773414744895
+  },
+  {
+    "id": "mem-MEMORY-----",
+    "key": "-",
+    "content": "- [变量系统已知问题与 TODO](./variable-system.md)",
+    "summary": "变量系统",
+    "namespace": "core",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/kongkang/.claude/projects/-Users-kongkang-Developer-wainao-editor/memory/MEMORY.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1773414744896
+  },
+  {
+    "id": "mem-MEMORY-----",
+    "key": "-",
+    "content": "- **固件 BLE 协议**: `docs/features/hardware/firmware/ble-protocol.md` — 发送用 `\\n`，接收为 `\\r\\n`（V1/V1.5 确认行为，**禁止改回 `\\r\\n` 发送**）\n- **命令定义 JSON**: `docs/features/hardware/firmware/commands/` — base/record/wifi/file/system/upload/active\n- **上游仓库**: `ReAI-com/dyj-hd-v2`（`docs/appProtocol.md` + `docs/commands/`）\n- **前端 BLE 封装**: `apps/frontend/src/composables/useBluetooth.ts` — NUS 协议，动态特征值发现\n- **蓝牙测试 Drawer**: `apps/frontend/src/views/Devices/components/DeviceTestDrawer.vue`\n- **已知问题**: V1 固件部分命令未实现（如 SYN",
+    "summary": "硬件设备",
+    "namespace": "core",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/kongkang/.claude/projects/-Users-kongkang-Developer-wainao-editor/memory/MEMORY.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1773414744896
+  },
+  {
+    "id": "mem-MEMORY-ndrawer---agent-sidebar-------",
+    "key": "ndrawer-agent-sidebar-",
+    "content": "- **所有右侧 NDrawer 必须使用 `useWnLayoutTarget()`**，否则 Drawer 会覆盖右侧 Agent Sidebar\n- **三步模式**:\n  1. `import { useWnLayoutTarget } from '@/components/wn-layout/useWnLayoutTarget'`\n  2. `const layoutTarget = useWnLayoutTarget()`\n  3. `<n-drawer v-if=\"layoutTarget\" :to=\"layoutTarget\" ...>`\n- **原理**: `useWnLayoutTarget()` 返回 WnLayoutRoot 容器的 ref，Agent Sidebar 打开时容器通过 CSS 变量 `--wn-agent-sidebar-width` 自动压缩 `right`，Drawer 挂载到容器内就不会覆盖 Agent UI\n- **`v-if=\"layoutTarget\"` 必须加**: 用于 TypeScript 类型收窄（`Ref<HTMLEleme",
+    "summary": "NDrawer 与 Agent Sidebar 兼容（重要！）",
+    "namespace": "core",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/kongkang/.claude/projects/-Users-kongkang-Developer-wainao-editor/memory/MEMORY.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1773414744896
+  },
+  {
+    "id": "mem-MEMORY-------",
+    "key": "-",
+    "content": "- **移动端 Drawer 机制**: `DashboardLayout` 通过 `provide('dashboardMobile', { isMobile, showDrawer })` 提供移动端状态，子组件通过 `inject` 获取\n- **DemoMainHeader 自动感知**: 自动 inject `dashboardMobile`，移动端将 PanelIcon 替换为 Menu 汉堡图标，点击打开 Drawer。DashboardMainHeader 传 `showSwitchIcon=false` 所以不受影响\n- **Drawer 内导航自动关闭**: `DashboardSideBody` 和 `DashboardSideHeader` inject 同一状态，导航/切换团队后自动 `showDrawer=false`\n- **侧边栏宽度自适应**: `DashboardSideBody` 非折叠状态用 `width: 100%` 而非固定像素，避免 Drawer 内横向溢出",
+    "summary": "布局与移动端",
+    "namespace": "core",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/kongkang/.claude/projects/-Users-kongkang-Developer-wainao-editor/memory/MEMORY.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1773414744896
+  },
+  {
+    "id": "mem-MEMORY-skills",
+    "key": "skills",
+    "content": "- **update-docs**: 开发文档自动同步 skill（项目级 `.claude/skills/update-docs/SKILL.md`）\n  - 触发时机：开发完成后、codex-code-review 之前\n  - 前端文档放 `docs/features/<module>/frontend.md`\n  - 后端 API 文档同步更新 `docs/features/` + `apps/docs-site/docs/api/`\n  - 微小变更（typo/import）自动跳过\n  - 全局工作流已更新：步骤 4（文档同步）→ 步骤 5（代码审查）",
+    "summary": "Skills",
+    "namespace": "core",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/kongkang/.claude/projects/-Users-kongkang-Developer-wainao-editor/memory/MEMORY.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1773414744896
+  },
+  {
+    "id": "mem-MEMORY-auto-plan-------------",
+    "key": "auto-plan-",
+    "content": "- **状态文件**: 初始化时创建 `auto-plan-status.md`，每个阶段转换时更新，防止上下文压缩丢进度\n- **Plan 目录**: `plans/<日期>-<描述>.md`，不放项目根目录\n- **Codex 隔离**: `cd $WORKTREE_DIR && codex exec`，必须先 cd 到 worktree！否则 Codex 会审查主工作区的错误文件\n- **阶段五是 push+PR，不是本地 merge**: `git push -u origin <branch>` → `gh pr create`，PR body 包含完整流水线审查记录\n- **不做本地 merge**: 合入由 PR 合并完成，worktree 分支推远端后清理本地 worktree\n- **最终状态校验**: 清理 worktree 前必须检查 `auto-plan-status.md` 所有阶段已完成",
+    "summary": "auto-plan 关键规则（必须严格遵守）",
+    "namespace": "core",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/kongkang/.claude/projects/-Users-kongkang-Developer-wainao-editor/memory/MEMORY.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1773414744896
+  },
+  {
+    "id": "mem-MEMORY------",
+    "key": "-",
+    "content": "- **善用子代理**: 主线程只做调度和状态追踪，所有代码修复交给 worktree agent，保持上下文干净\n- **Codex 审查闭环**: 回复评论后必须触发 `@codex review`，直到拿到 LGTM 才算完成\n- **无需修复的问题**: 不仅要回复 git 评论，还要在**代码中**添加注释说明原因",
+    "summary": "工作流偏好",
+    "namespace": "core",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/kongkang/.claude/projects/-Users-kongkang-Developer-wainao-editor/memory/MEMORY.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1773414744896
+  },
+  {
+    "id": "mem-MEMORY-github-api---",
+    "key": "github-api-",
+    "content": "- **PR 评论轮询必须查 3 个端点**：`pulls/N/reviews`（review 摘要）、`pulls/N/comments`（inline 评论）、`issues/N/comments`（PR 级评论）\n- **review comment 陷阱**：新增的 review comment 的 `created_at` 可能晚于其所属 review 的 `submitted_at`。只查 `reviews` 的 `submitted_at` 会漏掉新评论！**必须用 `pulls/N/comments?sort=created&direction=desc` 作为主查询方式**\n- **jq `!=` 转义**：shell 中 `!=` 会被 zsh 转义为 `\\!`，改用 `select(.user.login == \"xxx\" | not)` 模式\n- **Codex 重复问题处理**：Codex 会反复提出已标记 TODO 的问题，连续 3 轮只有重复问题时视为收敛，可结束循环",
+    "summary": "GitHub API 经验",
+    "namespace": "core",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/kongkang/.claude/projects/-Users-kongkang-Developer-wainao-editor/memory/MEMORY.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1773414744896
+  },
+  {
+    "id": "mem-MEMORY-------",
+    "key": "-",
+    "content": "- [全局 HTTP Dispatcher 与 WebSocket 兼容性](./global-dispatcher-lessons.md) — `setGlobalDispatcher` 影响所有 undici 网络操作（含 WebSocket），`allowH2` 在 Node 22 下破坏 WS 升级\n- [文档同步检查清单](./doc-sync-checklist.md) — 基础设施/数据库变更后必须检查的文档列表",
+    "summary": "基础设施经验",
+    "namespace": "core",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/kongkang/.claude/projects/-Users-kongkang-Developer-wainao-editor/memory/MEMORY.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1773414744896
+  },
+  {
+    "id": "mem-doc-sync-checklist-----",
+    "key": "-",
+    "content": "以下类型的变更完成后，必须检查相关文档是否同步：\n\n1. **全局基础设施变更**（连接池、dispatcher、中间件）\n   - `docs/CLAUDE/http-connection-pool.md`\n   - `docs/CLAUDE/platform-capabilities.md`（已有通用能力表）\n2. **数据库 Realtime/Publication 变更**\n   - `supabase/README.md`（Realtime 配置章节）\n   - 对应的规划文档（如 `docs/plan/cron_system_rebuild.md`）\n3. **三平台数据库结构变更**\n   - 三平台是否都有对应的表（Raspberry 可能缺失）\n   - 迁移脚本是否存在于 `supabase/sql/`",
+    "summary": "触发条件",
+    "namespace": "doc-sync-checklist",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/kongkang/.claude/projects/-Users-kongkang-Developer-wainao-editor/memory/doc-sync-checklist.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1773414744896
+  },
+  {
+    "id": "mem-doc-sync-checklist--------",
+    "key": "-",
+    "content": "- 代码已移除某特性，但文档仍宣传该特性（如 allowH2）\n- 新增了 Realtime 订阅，但未更新数据库文档的 publication 清单\n- 规划文档中的状态标记（🔜 待做）与实际代码实现不符",
+    "summary": "常见不一致模式",
+    "namespace": "doc-sync-checklist",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/kongkang/.claude/projects/-Users-kongkang-Developer-wainao-editor/memory/doc-sync-checklist.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1773414744896
+  },
+  {
+    "id": "mem-global-dispatcher-lessons-----",
+    "key": "-",
+    "content": "`setGlobalDispatcher()` 影响 **所有** 基于 undici 的网络操作，包括原生 WebSocket。\n在 Node.js 22 + undici 7.x 环境下，`allowH2: true` 会破坏 WebSocket 升级握手。",
+    "summary": "核心教训",
+    "namespace": "global-dispatcher-lessons",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/kongkang/.claude/projects/-Users-kongkang-Developer-wainao-editor/memory/global-dispatcher-lessons.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1773414744896
+  },
+  {
+    "id": "mem-global-dispatcher-lessons-----",
+    "key": "-",
+    "content": "- Node.js 22 + undici 7.x + @supabase/supabase-js 2.49.1\n- 原生 WebSocket 基于 undici 实现，受全局 dispatcher 影响",
+    "summary": "版本边界",
+    "namespace": "global-dispatcher-lessons",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/kongkang/.claude/projects/-Users-kongkang-Developer-wainao-editor/memory/global-dispatcher-lessons.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1773414744896
+  },
+  {
+    "id": "mem-global-dispatcher-lessons-----",
+    "key": "-",
+    "content": "1. **全局配置变更 = 全链路回归**：修改 `setGlobalDispatcher` 等全局网络配置后，必须验证所有网络协议（HTTP、WebSocket、SSE）\n2. **基础设施优化需回归测试清单**：连接池、代理、DNS 等底层变更，需逐一验证上层服务（Realtime 订阅、AI 流式、协作同步）\n3. **回滚优先于深挖**：全局配置导致的广泛故障，优先移除变更恢复服务，再局部优化",
+    "summary": "决策原则",
+    "namespace": "global-dispatcher-lessons",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/kongkang/.claude/projects/-Users-kongkang-Developer-wainao-editor/memory/global-dispatcher-lessons.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1773414744896
+  },
+  {
+    "id": "mem-global-dispatcher-lessons-----",
+    "key": "-",
+    "content": "- 对比测试脚本：加/去全局配置，观察 subscribe 状态和 wsReadyState\n- 结构化诊断日志：在 subscribe 回调中输出 connectionState、wsReadyState\n- 不需要 [DIAG] 前缀的静态快照日志（信噪比低），subscribe 回调内的上下文输出已足够",
+    "summary": "排查模式",
+    "namespace": "global-dispatcher-lessons",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/kongkang/.claude/projects/-Users-kongkang-Developer-wainao-editor/memory/global-dispatcher-lessons.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1773414744896
+  },
+  {
+    "id": "mem-variable-system----",
+    "key": "-",
+    "content": "### Flow block input 引用自身 output（2026-02-25）\n- **问题**：Flow 的 input 配置中变量选择器错误显示自身 output 变量\n- **根因**：`excludeBlockId` 过滤只排 `inside` 不排 `after` + prop 链断裂\n- **修复文件**：\n  - `variable-manager.ts:166` — 排除逻辑扩展为所有变量类型\n  - `FlowConfig.vue` — 传 `excludeBlockId` 给 FlowInputForm\n  - `FlowInputForm.vue` — 接收并转发 `excludeBlockId`，`getVariableType` 同步传参\n  - `FlowConfig.vue` — inputJSON 恢复时过滤 self-reference 脏数据",
+    "summary": "已修复",
+    "namespace": "variable-system",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/kongkang/.claude/projects/-Users-kongkang-Developer-wainao-editor/memory/variable-system.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1773414744896
+  },
+  {
+    "id": "mem-variable-system----todo",
+    "key": "-todo",
+    "content": "### 嵌套变量递归过滤\n- **现状**：`FlowConfig.vue` 的 self-reference 脏数据过滤是顶层 `ValueSource` 粒度\n- **触发条件**：未来若支持 `list/object` 类型的嵌套变量编辑\n- **需要做**：把 `FlowConfig.vue:367-371` 的 self-reference 过滤改为递归扫描\n- **关联文件**：`apps/frontend/src/components/Prosekit/components/FlowConfig.vue`\n\n### document-parser 坐标偏移\n- **现状**：`document-parser.ts` 对空内容节点（JSON 中无 `content` 属性）计算 size=1，但 ProseMirror 实际 size=2\n- **影响**：每个空节点导致 -1 偏移积累，可能导致 `after` 规则在特定文档结构下异常\n- **当前防护**：已通过 `excludeBlockId` 语义排除兜底，不依赖位置精确对齐\n- **关联文件**：`apps/fr",
+    "summary": "已知 TODO",
+    "namespace": "variable-system",
+    "type": "semantic",
+    "metadata": {
+      "sourceFile": "/Users/kongkang/.claude/projects/-Users-kongkang-Developer-wainao-editor/memory/variable-system.md",
+      "bootstrapped": true
+    },
+    "createdAt": 1773414744896
+  }
+]

@@ -1,0 +1,299 @@
+{
+  "version": 1,
+  "updatedAt": 1773414744901,
+  "nodeCount": 21,
+  "nodes": {
+    "mem-MEMORY-feedback": {
+      "id": "mem-MEMORY-feedback",
+      "category": "core",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1773414744895
+    },
+    "mem-MEMORY-project": {
+      "id": "mem-MEMORY-project",
+      "category": "core",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1773414744893
+    },
+    "mem-feedback_never_blindly_kill_ports----": {
+      "id": "mem-feedback_never_blindly_kill_ports----",
+      "category": "feedback_never_blindly_kill_ports",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1773414744893
+    },
+    "mem-feedback_never_modify_host_network----": {
+      "id": "mem-feedback_never_modify_host_network----",
+      "category": "feedback_never_modify_host_network",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1773414744894
+    },
+    "mem-project_csi_working----": {
+      "id": "mem-project_csi_working----",
+      "category": "project_csi_working",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1773414744894
+    },
+    "mem-feedback_code_quality----": {
+      "id": "mem-feedback_code_quality----",
+      "category": "feedback_code_quality",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1773414744895
+    },
+    "mem-modal-route-ignore-pointer-bug---": {
+      "id": "mem-modal-route-ignore-pointer-bug---",
+      "category": "modal-route-ignore-pointer-bug",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1773414744895
+    },
+    "mem-modal-route-ignore-pointer-bug----flutter-issues": {
+      "id": "mem-modal-route-ignore-pointer-bug----flutter-issues",
+      "category": "modal-route-ignore-pointer-bug",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1773414744895
+    },
+    "mem-modal-route-ignore-pointer-bug-----": {
+      "id": "mem-modal-route-ignore-pointer-bug-----",
+      "category": "modal-route-ignore-pointer-bug",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1773414744895
+    },
+    "mem-MEMORY-----": {
+      "id": "mem-MEMORY-----",
+      "category": "core",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1773414744896
+    },
+    "mem-MEMORY-ndrawer---agent-sidebar-------": {
+      "id": "mem-MEMORY-ndrawer---agent-sidebar-------",
+      "category": "core",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1773414744896
+    },
+    "mem-MEMORY-------": {
+      "id": "mem-MEMORY-------",
+      "category": "core",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1773414744896
+    },
+    "mem-MEMORY-skills": {
+      "id": "mem-MEMORY-skills",
+      "category": "core",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1773414744896
+    },
+    "mem-MEMORY-auto-plan-------------": {
+      "id": "mem-MEMORY-auto-plan-------------",
+      "category": "core",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1773414744896
+    },
+    "mem-MEMORY------": {
+      "id": "mem-MEMORY------",
+      "category": "core",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1773414744896
+    },
+    "mem-MEMORY-github-api---": {
+      "id": "mem-MEMORY-github-api---",
+      "category": "core",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1773414744896
+    },
+    "mem-doc-sync-checklist-----": {
+      "id": "mem-doc-sync-checklist-----",
+      "category": "doc-sync-checklist",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1773414744896
+    },
+    "mem-doc-sync-checklist--------": {
+      "id": "mem-doc-sync-checklist--------",
+      "category": "doc-sync-checklist",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1773414744896
+    },
+    "mem-global-dispatcher-lessons-----": {
+      "id": "mem-global-dispatcher-lessons-----",
+      "category": "global-dispatcher-lessons",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1773414744896
+    },
+    "mem-variable-system----": {
+      "id": "mem-variable-system----",
+      "category": "variable-system",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1773414744896
+    },
+    "mem-variable-system----todo": {
+      "id": "mem-variable-system----todo",
+      "category": "variable-system",
+      "confidence": 0.5,
+      "accessCount": 0,
+      "createdAt": 1773414744896
+    }
+  },
+  "edges": [
+    {
+      "sourceId": "mem-MEMORY-feedback",
+      "targetId": "mem-MEMORY-project",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-modal-route-ignore-pointer-bug---",
+      "targetId": "mem-modal-route-ignore-pointer-bug---",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-modal-route-ignore-pointer-bug---",
+      "targetId": "mem-modal-route-ignore-pointer-bug----flutter-issues",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-modal-route-ignore-pointer-bug----flutter-issues",
+      "targetId": "mem-modal-route-ignore-pointer-bug-----",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-MEMORY-----",
+      "targetId": "mem-MEMORY-----",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-MEMORY-----",
+      "targetId": "mem-MEMORY-ndrawer---agent-sidebar-------",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-MEMORY-ndrawer---agent-sidebar-------",
+      "targetId": "mem-MEMORY-------",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-MEMORY-------",
+      "targetId": "mem-MEMORY-skills",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-MEMORY-skills",
+      "targetId": "mem-MEMORY-auto-plan-------------",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-MEMORY-auto-plan-------------",
+      "targetId": "mem-MEMORY------",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-MEMORY------",
+      "targetId": "mem-MEMORY-github-api---",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-MEMORY-github-api---",
+      "targetId": "mem-MEMORY-------",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-doc-sync-checklist-----",
+      "targetId": "mem-doc-sync-checklist--------",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-global-dispatcher-lessons-----",
+      "targetId": "mem-global-dispatcher-lessons-----",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-global-dispatcher-lessons-----",
+      "targetId": "mem-global-dispatcher-lessons-----",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-global-dispatcher-lessons-----",
+      "targetId": "mem-global-dispatcher-lessons-----",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-variable-system----",
+      "targetId": "mem-variable-system----todo",
+      "type": "temporal",
+      "weight": 0.5
+    },
+    {
+      "sourceId": "mem-global-dispatcher-lessons-----",
+      "targetId": "mem-global-dispatcher-lessons-----",
+      "type": "similar",
+      "weight": 0.45652173913043476
+    },
+    {
+      "sourceId": "mem-global-dispatcher-lessons-----",
+      "targetId": "mem-global-dispatcher-lessons-----",
+      "type": "similar",
+      "weight": 0.5106382978723404
+    },
+    {
+      "sourceId": "mem-global-dispatcher-lessons-----",
+      "targetId": "mem-global-dispatcher-lessons-----",
+      "type": "similar",
+      "weight": 0.30612244897959184
+    }
+  ],
+  "pageRanks": {
+    "mem-MEMORY-feedback": 0.013919874067970649,
+    "mem-MEMORY-project": 0.025751778449066676,
+    "mem-feedback_never_blindly_kill_ports----": 0.013919874067970649,
+    "mem-feedback_never_modify_host_network----": 0.013919874067970649,
+    "mem-project_csi_working----": 0.013919874067970649,
+    "mem-feedback_code_quality----": 0.013919874067970649,
+    "mem-modal-route-ignore-pointer-bug---": 0.024208505977023807,
+    "mem-modal-route-ignore-pointer-bug----flutter-issues": 0.024208505977023807,
+    "mem-modal-route-ignore-pointer-bug-----": 0.034497137886076966,
+    "mem-MEMORY-----": 0.024208505977023807,
+    "mem-MEMORY-ndrawer---agent-sidebar-------": 0.024208505977023807,
+    "mem-MEMORY-------": 0.12963968668709927,
+    "mem-MEMORY-skills": 0.12417140891713185,
+    "mem-MEMORY-auto-plan-------------": 0.11953708689030042,
+    "mem-MEMORY------": 0.11558632033888587,
+    "mem-MEMORY-github-api---": 0.11224095700730571,
+    "mem-doc-sync-checklist-----": 0.013919874067970649,
+    "mem-doc-sync-checklist--------": 0.025751778449066676,
+    "mem-global-dispatcher-lessons-----": 0.09279892454211011,
+    "mem-variable-system----": 0.013919874067970649,
+    "mem-variable-system----todo": 0.025751778449066676
+  }
+}
