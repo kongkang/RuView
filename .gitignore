@@ -16,6 +16,9 @@ firmware/esp32-csi-node/sdkconfig.defaults.bak
 # Claude Flow swarm runtime state
 .swarm/
 
+# Claude Flow session state (temporary, machine-specific)
+.claude-flow/sessions/
+
 # CSI recordings (local training data, machine-specific)
 rust-port/wifi-densepose-rs/data/recordings/
 
